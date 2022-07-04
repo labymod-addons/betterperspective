@@ -8,6 +8,12 @@ plugins {
 val minecraftGameVersion: String = "1.8.9"
 val minecraftVersionTag: String = "1.8"
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+
 dependencies {
     labyProcessor()
     labyApi("v1_8")
@@ -29,7 +35,7 @@ volt {
         minVersion = "0.6.6"
     }
 
-    packageName("org.example.addons.v1_8.mixins")
+    packageName("net.labymod.betterperspective.v1_8.mixins")
 
     version = minecraftGameVersion
 }
