@@ -27,7 +27,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("net.labymod.gradle", "addon", "0.1.34")
+        classpath("net.labymod.gradle", "addon", "0.2.28")
     }
 }
 
@@ -35,7 +35,7 @@ plugins {
     id("java-library")
 }
 
-group = "net.labymod.addons"
+group = "org.example"
 version = "1.0.0"
 
 plugins.apply("net.labymod.gradle.addon")
@@ -67,10 +67,15 @@ createReleaseJar {
 
 addon {
     addonInfo {
-        id("betterperspective")
-        displayName("Better Perspective")
-        author("Pascal Helmerich")
+        namespace("betterperspective")
+        displayName("BetterPerspective")
+        author("LabyMedia GmbH")
         version(System.getenv().getOrDefault("VERSION", "0.0.0"))
+    }
+
+    dev {
+        releaseChannel = "improvement-addon-api"
+        commitReference = "unknown"
     }
 
     internalRelease()

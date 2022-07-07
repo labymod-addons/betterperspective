@@ -1,0 +1,16 @@
+{
+  "settings": {
+    "betterperspective": {
+      "name": "BetterPerspective",
+      "enabled": {
+        "name": "Enabled"
+      },
+      "toggle": {
+        "name": "Toggle"
+      },
+      "key": {
+        "name": "Key"
+      }
+    }
+  }
+}
