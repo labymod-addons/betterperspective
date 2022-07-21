@@ -1,4 +1,4 @@
-package net.labymod.betterperspective.v1_8.entity;
+package net.labymod.addons.betterperspective.v1_8.entity;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;

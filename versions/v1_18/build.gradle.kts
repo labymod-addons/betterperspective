@@ -44,8 +44,8 @@ volt {
         minVersion = "0.8.2"
     }
 
-    packageName("net.labymod.betterperspective.v1_17.mixins")
-    packageName("net.labymod.betterperspective.v1_18.mixins")
+    packageName("net.labymod.addons.betterperspective.v1_17.mixins")
+    packageName("net.labymod.addons.betterperspective.v1_18.mixins")
 
     inheritFrom("v1_17")
 

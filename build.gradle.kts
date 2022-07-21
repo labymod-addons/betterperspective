@@ -27,7 +27,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("net.labymod.gradle", "addon", "0.2.35")
+        classpath("net.labymod.gradle", "addon", "0.2.36")
     }
 }
 
@@ -59,6 +59,7 @@ addon {
         displayName("BetterPerspective")
         author("LabyMedia GmbH")
         version(System.getenv().getOrDefault("VERSION", "0.0.0"))
+        minecraftVersion("1.17<1.19")
     }
 
     dev {

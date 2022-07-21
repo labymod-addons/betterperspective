@@ -1,4 +1,4 @@
-package net.labymod.betterperspective.v1_17.mixins;
+package net.labymod.addons.betterperspective.v1_17.mixins;
 
 import net.labymod.addons.betterperspective.core.BetterPerspectiveService;
 import net.labymod.api.inject.LabyGuice;

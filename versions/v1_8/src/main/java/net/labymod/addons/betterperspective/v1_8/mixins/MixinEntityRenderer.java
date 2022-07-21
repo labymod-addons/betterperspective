@@ -1,9 +1,9 @@
-package net.labymod.betterperspective.v1_8.mixins;
+package net.labymod.addons.betterperspective.v1_8.mixins;
 
 import net.labymod.addons.betterperspective.core.BetterPerspectiveService;
+import net.labymod.addons.betterperspective.v1_8.entity.EntityCamera;
 import net.labymod.api.inject.LabyGuice;
 import net.labymod.api.util.math.MathHelper;
-import net.labymod.betterperspective.v1_8.entity.EntityCamera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.EntityRenderer;

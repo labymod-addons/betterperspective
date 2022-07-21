@@ -31,7 +31,7 @@ volt {
         minVersion = "0.6.6"
     }
 
-    packageName("net.labymod.betterperspective.v1_8.mixins")
+    packageName("net.labymod.addons.betterperspective.v1_8.mixins")
 
     version = minecraftGameVersion
 }
