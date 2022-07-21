@@ -44,11 +44,21 @@ volt {
         minVersion = "0.8.2"
     }
 
-    packageName("org.example.addon.v1_19.mixins")
+    packageName("net.labymod.betterperspective.v1_17.mixins")
+    packageName("net.labymod.betterperspective.v1_19.mixins")
+
+    inheritFrom("v1_17")
 
     version = minecraftGameVersion
 }
 
+val inheritv117 = sourceSets.create("inherit-v1_17") {
+    java.srcDirs(project.files("../v1_17/src/main/java"))
+}
+
+sourceSets.getByName("main") {
+    java.srcDirs(inheritv117.java)
+}
 
 intellij {
     minorMinecraftVersion(minecraftVersionTag)
@@ -61,6 +71,12 @@ intellij {
     }
 }
 
-tasks.collectNatives {
-    into("${project.gradle.gradleUserHomeDir}/caches/VanillaGradle/v2/natives/${minecraftGameVersion}/")
+tasks {
+    collectNatives {
+        into("${project.gradle.gradleUserHomeDir}/caches/VanillaGradle/v2/natives/${minecraftGameVersion}/")
+    }
+
+    renameApiMixin {
+        relocate("net.labymod.addons.betterperspective.v1_17.", "net.labymod.addons.betterperspective.v1_19.")
+    }
 }

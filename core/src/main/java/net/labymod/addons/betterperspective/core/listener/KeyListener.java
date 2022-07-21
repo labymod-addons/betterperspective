@@ -19,27 +19,27 @@ public class KeyListener {
 
 	@Subscribe
 	public void onKey(KeyEvent event) {
-		if (!this.addon.labyAPI().getMinecraft().isMouseLocked()) {
+		if (!this.addon.labyAPI().minecraft().isMouseLocked()) {
 			return;
 		}
 
 		BetterPerspectiveConfiguration configuration = this.addon.configuration();
-		if (!configuration.isEnabled() || !event.getKey().equals(configuration.getKey())) {
+		if (!configuration.isEnabled() || !event.key().equals(configuration.getKey())) {
 			return;
 		}
 
 		BetterPerspectiveService service = LabyGuice.getInstance(BetterPerspectiveService.class);
 		if (configuration.isToggle()) {
-			if (event.getState().equals(KeyEvent.State.UNPRESSED)) {
+			if (event.state() == KeyEvent.State.UNPRESSED) {
 				service.toggle();
 			}
 
 			return;
 		}
 
-		if (event.getState().equals(KeyEvent.State.UNPRESSED)) {
+		if (event.state() == KeyEvent.State.UNPRESSED) {
 			service.deactivate();
-		} else if (event.getState().equals(KeyEvent.State.PRESS)) {
+		} else if (event.state() == KeyEvent.State.PRESS) {
 			service.activate();
 		}
 	}

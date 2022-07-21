@@ -31,15 +31,15 @@ public class BetterPerspectiveService {
 	public void activate() {
 		this.active = true;
 
-		MinecraftOptions options = this.labyAPI.getMinecraft().getOptions();
-		this.previousMode = options.getPerspective();
+		MinecraftOptions options = this.labyAPI.minecraft().options();
+		this.previousMode = options.perspective();
 		options.setPerspective(Perspective.THIRD_PERSON_BACK);
 	}
 
 	public void deactivate() {
 		this.active = false;
 
-		MinecraftOptions options = this.labyAPI.getMinecraft().getOptions();
+		MinecraftOptions options = this.labyAPI.minecraft().options();
 		options.setPerspective(this.previousMode);
 	}
 
