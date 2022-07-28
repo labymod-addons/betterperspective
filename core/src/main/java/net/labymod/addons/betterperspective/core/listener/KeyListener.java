@@ -24,12 +24,12 @@ public class KeyListener {
 		}
 
 		BetterPerspectiveConfiguration configuration = this.addon.configuration();
-		if (!configuration.isEnabled() || !event.key().equals(configuration.getKey())) {
+		if (!configuration.enabled().get() || !event.key().equals(configuration.key().get())) {
 			return;
 		}
 
 		BetterPerspectiveService service = LabyGuice.getInstance(BetterPerspectiveService.class);
-		if (configuration.isToggle()) {
+		if (configuration.toggle().get()) {
 			if (event.state() == KeyEvent.State.UNPRESSED) {
 				service.toggle();
 			}
