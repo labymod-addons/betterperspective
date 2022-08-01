@@ -3,63 +3,53 @@ package net.labymod.addons.betterperspective.core;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import net.labymod.api.LabyAPI;
+import net.labymod.api.client.entity.player.CameraLockController;
 import net.labymod.api.client.options.MinecraftOptions;
 import net.labymod.api.client.options.Perspective;
 
 @Singleton
 public class BetterPerspectiveService {
 
-	private final LabyAPI labyAPI;
-	private Perspective previousMode;
-	private boolean active = false;
-	private float yaw;
-	private float pitch;
+    private final LabyAPI labyAPI;
+    private final CameraLockController cameraLockController;
 
-	@Inject
-	private BetterPerspectiveService(LabyAPI labyAPI) {
-		this.labyAPI = labyAPI;
-	}
+    private Perspective previousMode;
+    private boolean active = false;
 
-	public void toggle() {
-		if (this.active) {
-			this.deactivate();
-		} else {
-			this.activate();
-		}
-	}
+    @Inject
+    private BetterPerspectiveService(LabyAPI labyAPI, CameraLockController cameraLockController) {
+        this.labyAPI = labyAPI;
+        this.cameraLockController = cameraLockController;
+    }
 
-	public void activate() {
-		this.active = true;
+    public void toggle() {
+        if (this.active) {
+            this.deactivate();
+        } else {
+            this.activate();
+        }
+    }
 
-		MinecraftOptions options = this.labyAPI.minecraft().options();
-		this.previousMode = options.perspective();
-		options.setPerspective(Perspective.THIRD_PERSON_BACK);
-	}
+    public void activate() {
+        this.active = true;
 
-	public void deactivate() {
-		this.active = false;
+        MinecraftOptions options = this.labyAPI.minecraft().options();
+        this.previousMode = options.perspective();
+        options.setPerspective(Perspective.THIRD_PERSON_BACK);
 
-		MinecraftOptions options = this.labyAPI.minecraft().options();
-		options.setPerspective(this.previousMode);
-	}
+        this.cameraLockController.lock(CameraLockController.LockType.HEAD);
+    }
 
-	public boolean isActive() {
-		return this.active;
-	}
+    public void deactivate() {
+        this.active = false;
 
-	public float getYaw() {
-		return this.yaw;
-	}
+        MinecraftOptions options = this.labyAPI.minecraft().options();
+        options.setPerspective(this.previousMode);
 
-	public void setYaw(float yaw) {
-		this.yaw = yaw;
-	}
+        this.cameraLockController.unlock();
+    }
 
-	public float getPitch() {
-		return this.pitch;
-	}
-
-	public void setPitch(float pitch) {
-		this.pitch = pitch;
-	}
+    public boolean isActive() {
+        return this.active;
+    }
 }

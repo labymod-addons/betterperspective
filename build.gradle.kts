@@ -62,10 +62,10 @@ addon {
         minecraftVersion("1.17<1.19")
     }
 
-    dev {
+    /*dev {
         releaseChannel = "improvement-addon-api"
         commitReference = "unknown"
-    }
+    }*/
 
     internalRelease()
 }
