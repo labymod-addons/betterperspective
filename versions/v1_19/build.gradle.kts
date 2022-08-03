@@ -52,14 +52,6 @@ volt {
     version = minecraftGameVersion
 }
 
-val inheritv117 = sourceSets.create("inherit-v1_17") {
-    java.srcDirs(project.files("../v1_17/src/main/java"))
-}
-
-sourceSets.getByName("main") {
-    java.srcDirs(inheritv117.java)
-}
-
 intellij {
     minorMinecraftVersion(minecraftVersionTag)
     val javaVersion = project.findProperty("net.labymod.runconfig-v1_19-java-version")
@@ -74,9 +66,5 @@ intellij {
 tasks {
     collectNatives {
         into("${project.gradle.gradleUserHomeDir}/caches/VanillaGradle/v2/natives/${minecraftGameVersion}/")
-    }
-
-    renameApiMixin {
-        relocate("net.labymod.addons.betterperspective.v1_17.", "net.labymod.addons.betterperspective.v1_19.")
     }
 }

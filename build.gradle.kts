@@ -59,7 +59,6 @@ addon {
         displayName("BetterPerspective")
         author("LabyMedia GmbH")
         version(System.getenv().getOrDefault("VERSION", "0.0.0"))
-        minecraftVersion("1.17<1.19")
     }
 
     /*dev {
