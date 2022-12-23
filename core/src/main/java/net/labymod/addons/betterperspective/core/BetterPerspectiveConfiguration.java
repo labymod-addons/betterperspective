@@ -16,13 +16,14 @@
 
 package net.labymod.addons.betterperspective.core;
 
-import com.google.inject.Singleton;
 import net.labymod.api.addon.AddonConfig;
 import net.labymod.api.client.gui.screen.key.Key;
 import net.labymod.api.client.gui.screen.widget.widgets.input.KeybindWidget.KeyBindSetting;
 import net.labymod.api.client.gui.screen.widget.widgets.input.SwitchWidget.SwitchSetting;
 import net.labymod.api.configuration.loader.annotation.ConfigName;
 import net.labymod.api.configuration.loader.property.ConfigProperty;
+
+import javax.inject.Singleton;
 
 @Singleton
 @ConfigName("settings")

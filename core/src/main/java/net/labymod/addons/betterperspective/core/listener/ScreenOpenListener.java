@@ -17,48 +17,30 @@
 package net.labymod.addons.betterperspective.core.listener;
 
 import net.labymod.addons.betterperspective.core.BetterPerspective;
-import net.labymod.addons.betterperspective.core.BetterPerspectiveConfiguration;
 import net.labymod.addons.betterperspective.core.BetterPerspectiveService;
 import net.labymod.api.event.Subscribe;
-import net.labymod.api.event.client.input.KeyEvent;
-import net.labymod.api.inject.LabyGuice;
+import net.labymod.api.event.client.gui.screen.ScreenOpenEvent;
 
 import javax.inject.Inject;
 
-public class KeyListener {
+public class ScreenOpenListener {
 
 	private final BetterPerspective betterPerspective;
 	private final BetterPerspectiveService service;
 
 	@Inject
-	private KeyListener(BetterPerspective betterPerspective, BetterPerspectiveService service) {
+	private ScreenOpenListener(BetterPerspective betterPerspective,
+	                           BetterPerspectiveService service) {
 		this.betterPerspective = betterPerspective;
 		this.service = service;
 	}
 
 	@Subscribe
-	public void onKey(KeyEvent event) {
-		if (!this.betterPerspective.labyAPI().minecraft().isMouseLocked()) {
+	public void onScreenOpen(ScreenOpenEvent event) {
+		if (this.betterPerspective.configuration().toggle().get()) {
 			return;
 		}
 
-		BetterPerspectiveConfiguration configuration = this.betterPerspective.configuration();
-		if (!configuration.enabled().get() || !event.key().equals(configuration.key().get())) {
-			return;
-		}
-
-		if (configuration.toggle().get()) {
-			if (event.state() == KeyEvent.State.UNPRESSED) {
-				this.service.toggle();
-			}
-
-			return;
-		}
-
-		if (event.state() == KeyEvent.State.UNPRESSED) {
-			this.service.deactivate();
-		} else if (event.state() == KeyEvent.State.PRESS) {
-			this.service.activate();
-		}
+		this.service.deactivate();
 	}
 }

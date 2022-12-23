@@ -16,12 +16,13 @@
 
 package net.labymod.addons.betterperspective.core;
 
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import net.labymod.api.LabyAPI;
 import net.labymod.api.client.entity.player.CameraLockController;
 import net.labymod.api.client.options.MinecraftOptions;
 import net.labymod.api.client.options.Perspective;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 @Singleton
 public class BetterPerspectiveService {
@@ -47,21 +48,35 @@ public class BetterPerspectiveService {
 	}
 
 	public void activate() {
+		if (this.active) {
+			return;
+		}
+
 		this.active = true;
 
 		MinecraftOptions options = this.labyAPI.minecraft().options();
 		this.previousMode = options.perspective();
-		options.setPerspective(Perspective.THIRD_PERSON_BACK);
+		if (this.previousMode == Perspective.FIRST_PERSON) {
+			options.setPerspective(Perspective.THIRD_PERSON_BACK);
+		}
 
 		this.cameraLockController.lock(CameraLockController.LockType.HEAD);
 	}
 
 	public void deactivate() {
+		this.deactivate(true);
+	}
+
+	public void deactivate(boolean resetPerspective) {
+		if (!this.active) {
+			return;
+		}
+
+		if (resetPerspective) {
+			this.labyAPI.minecraft().options().setPerspective(this.previousMode);
+		}
+
 		this.active = false;
-
-		MinecraftOptions options = this.labyAPI.minecraft().options();
-		options.setPerspective(this.previousMode);
-
 		this.cameraLockController.unlock();
 	}
 

@@ -17,48 +17,49 @@
 package net.labymod.addons.betterperspective.core.listener;
 
 import net.labymod.addons.betterperspective.core.BetterPerspective;
-import net.labymod.addons.betterperspective.core.BetterPerspectiveConfiguration;
 import net.labymod.addons.betterperspective.core.BetterPerspectiveService;
+import net.labymod.api.client.Minecraft;
+import net.labymod.api.client.entity.player.ClientPlayer;
+import net.labymod.api.client.options.Perspective;
+import net.labymod.api.event.Phase;
 import net.labymod.api.event.Subscribe;
-import net.labymod.api.event.client.input.KeyEvent;
-import net.labymod.api.inject.LabyGuice;
+import net.labymod.api.event.client.lifecycle.GameTickEvent;
+import net.labymod.api.event.labymod.labyconnect.session.LabyConnectPlayEmoteEvent;
 
 import javax.inject.Inject;
 
-public class KeyListener {
+public class GameTickListener {
 
 	private final BetterPerspective betterPerspective;
 	private final BetterPerspectiveService service;
+	private final Minecraft minecraft;
 
 	@Inject
-	private KeyListener(BetterPerspective betterPerspective, BetterPerspectiveService service) {
+	private GameTickListener(BetterPerspective betterPerspective, BetterPerspectiveService service,
+	                         Minecraft minecraft) {
 		this.betterPerspective = betterPerspective;
 		this.service = service;
+		this.minecraft = minecraft;
 	}
 
 	@Subscribe
-	public void onKey(KeyEvent event) {
-		if (!this.betterPerspective.labyAPI().minecraft().isMouseLocked()) {
+	public void onGameTick(GameTickEvent event) {
+		if (event.phase() != Phase.POST) {
 			return;
 		}
 
-		BetterPerspectiveConfiguration configuration = this.betterPerspective.configuration();
-		if (!configuration.enabled().get() || !event.key().equals(configuration.key().get())) {
+		ClientPlayer clientPlayer = this.minecraft.clientPlayer();
+		if (clientPlayer == null) {
 			return;
 		}
 
-		if (configuration.toggle().get()) {
-			if (event.state() == KeyEvent.State.UNPRESSED) {
-				this.service.toggle();
-			}
-
-			return;
+		if (this.service.isActive()
+				&& this.minecraft.options().perspective() == Perspective.FIRST_PERSON) {
+			this.service.deactivate(false);
 		}
 
-		if (event.state() == KeyEvent.State.UNPRESSED) {
-			this.service.deactivate();
-		} else if (event.state() == KeyEvent.State.PRESS) {
-			this.service.activate();
-		}
+		//		if (clientPlayer.getHealth() == 0) {
+		//			this.service.deactivate();
+		//		}
 	}
 }

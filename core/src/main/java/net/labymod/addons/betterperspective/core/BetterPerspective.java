@@ -16,10 +16,13 @@
 
 package net.labymod.addons.betterperspective.core;
 
-import com.google.inject.Singleton;
+import net.labymod.addons.betterperspective.core.listener.GameTickListener;
 import net.labymod.addons.betterperspective.core.listener.KeyListener;
+import net.labymod.addons.betterperspective.core.listener.ScreenOpenListener;
 import net.labymod.api.addon.LabyAddon;
 import net.labymod.api.models.addon.annotation.AddonListener;
+
+import javax.inject.Singleton;
 
 @Singleton
 @AddonListener
@@ -29,7 +32,9 @@ public class BetterPerspective extends LabyAddon<BetterPerspectiveConfiguration>
 	protected void enable() {
 		this.registerSettingCategory();
 
+		this.registerListener(GameTickListener.class);
 		this.registerListener(KeyListener.class);
+		this.registerListener(ScreenOpenListener.class);
 	}
 
 	@Override
