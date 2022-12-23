@@ -16,12 +16,15 @@
 
 package net.labymod.addons.betterperspective.core;
 
+import net.labymod.addons.betterperspective.core.misc.BetterPerspectivePerspective;
 import net.labymod.api.addon.AddonConfig;
 import net.labymod.api.client.gui.screen.key.Key;
 import net.labymod.api.client.gui.screen.widget.widgets.input.KeybindWidget.KeyBindSetting;
 import net.labymod.api.client.gui.screen.widget.widgets.input.SwitchWidget.SwitchSetting;
+import net.labymod.api.client.gui.screen.widget.widgets.input.dropdown.DropdownWidget;
 import net.labymod.api.configuration.loader.annotation.ConfigName;
 import net.labymod.api.configuration.loader.property.ConfigProperty;
+import net.labymod.api.configuration.settings.annotation.SettingSection;
 
 import javax.inject.Singleton;
 
@@ -38,6 +41,21 @@ public class BetterPerspectiveConfiguration extends AddonConfig {
 	@SwitchSetting
 	private final ConfigProperty<Boolean> toggle = new ConfigProperty<>(false);
 
+	@SettingSection("behavior")
+	@DropdownWidget.DropdownSetting
+	private final ConfigProperty<BetterPerspectivePerspective> thirdPersonMode =
+			new ConfigProperty<>(
+			BetterPerspectivePerspective.THIRD_PERSON_BACK);
+
+	@SwitchSetting
+	private final ConfigProperty<Boolean> lockPitchRange = new ConfigProperty<>(true);
+
+	@SwitchSetting
+	private final ConfigProperty<Boolean> skipFirstPerson = new ConfigProperty<>(false);
+
+	@SwitchSetting
+	private final ConfigProperty<Boolean> resetToPreviousPerspective = new ConfigProperty<>(true);
+
 	@Override
 	public ConfigProperty<Boolean> enabled() {
 		return this.enabled;
@@ -49,5 +67,21 @@ public class BetterPerspectiveConfiguration extends AddonConfig {
 
 	public ConfigProperty<Boolean> toggle() {
 		return this.toggle;
+	}
+
+	public ConfigProperty<BetterPerspectivePerspective> thirdPersonMode() {
+		return this.thirdPersonMode;
+	}
+
+	public ConfigProperty<Boolean> lockPitchRange() {
+		return this.lockPitchRange;
+	}
+
+	public ConfigProperty<Boolean> skipFirstPerson() {
+		return this.skipFirstPerson;
+	}
+
+	public ConfigProperty<Boolean> resetToPreviousPerspective() {
+		return this.resetToPreviousPerspective;
 	}
 }

@@ -16,6 +16,7 @@
 
 package net.labymod.addons.betterperspective.core;
 
+import net.labymod.addons.betterperspective.core.misc.BetterPerspectivePerspective;
 import net.labymod.api.LabyAPI;
 import net.labymod.api.client.entity.player.CameraLockController;
 import net.labymod.api.client.options.MinecraftOptions;
@@ -39,28 +40,20 @@ public class BetterPerspectiveService {
 		this.cameraLockController = cameraLockController;
 	}
 
-	public void toggle() {
-		if (this.active) {
-			this.deactivate();
-		} else {
-			this.activate();
-		}
-	}
-
-	public void activate() {
+	public void activate(BetterPerspectivePerspective perspective, boolean lockPitchRange) {
 		if (this.active) {
 			return;
 		}
 
 		this.active = true;
-
 		MinecraftOptions options = this.labyAPI.minecraft().options();
 		this.previousMode = options.perspective();
 		if (this.previousMode == Perspective.FIRST_PERSON) {
-			options.setPerspective(Perspective.THIRD_PERSON_BACK);
+			options.setPerspective(perspective.perspective());
 		}
 
 		this.cameraLockController.lock(CameraLockController.LockType.HEAD);
+		this.cameraLockController.setUnlimitedPitch(!lockPitchRange);
 	}
 
 	public void deactivate() {
@@ -72,9 +65,8 @@ public class BetterPerspectiveService {
 			return;
 		}
 
-		if (resetPerspective) {
-			this.labyAPI.minecraft().options().setPerspective(this.previousMode);
-		}
+		this.labyAPI.minecraft().options().setPerspective(
+				resetPerspective ? this.previousMode : Perspective.FIRST_PERSON);
 
 		this.active = false;
 		this.cameraLockController.unlock();

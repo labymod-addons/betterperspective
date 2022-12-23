@@ -17,6 +17,7 @@
 package net.labymod.addons.betterperspective.core.listener;
 
 import net.labymod.addons.betterperspective.core.BetterPerspective;
+import net.labymod.addons.betterperspective.core.BetterPerspectiveConfiguration;
 import net.labymod.addons.betterperspective.core.BetterPerspectiveService;
 import net.labymod.api.event.Subscribe;
 import net.labymod.api.event.client.gui.screen.ScreenOpenEvent;
@@ -37,10 +38,11 @@ public class ScreenOpenListener {
 
 	@Subscribe
 	public void onScreenOpen(ScreenOpenEvent event) {
-		if (this.betterPerspective.configuration().toggle().get()) {
+		BetterPerspectiveConfiguration configuration = this.betterPerspective.configuration();
+		if (configuration.toggle().get()) {
 			return;
 		}
 
-		this.service.deactivate();
+		this.service.deactivate(configuration.resetToPreviousPerspective().get());
 	}
 }

@@ -54,11 +54,11 @@ public class GameTickListener {
 
 		if (this.service.isActive()
 				&& this.minecraft.options().perspective() == Perspective.FIRST_PERSON) {
-			this.service.deactivate(false);
+			if (this.betterPerspective.configuration().skipFirstPerson().get()) {
+				this.minecraft.options().setPerspective(Perspective.THIRD_PERSON_BACK);
+			} else {
+				this.service.deactivate(false);
+			}
 		}
-
-		//		if (clientPlayer.getHealth() == 0) {
-		//			this.service.deactivate();
-		//		}
 	}
 }

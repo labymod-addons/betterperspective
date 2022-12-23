@@ -10,6 +10,31 @@
       },
       "key": {
         "name": "Key"
+      },
+      "thirdPersonMode": {
+        "name": "Third Person Mode",
+        "description": "The third person mode that will be selected when activating BetterPerspective.",
+        "entries": {
+          "thirdPersonBack": "Back",
+          "thirdPersonFront": "Front"
+        }
+      },
+      "lockPitchRange": {
+        "name": "Lock Pitch Range",
+        "description": "Locks the pitch range to 180 degrees. Disables the 360 degree pitch range."
+      },
+      "skipFirstPerson": {
+        "name": "Skip First Person",
+        "description": "If enabled, the first person view will be skipped when pressing F5. Otherwise BetterPerspective will be deactivated."
+      },
+      "resetToPreviousPerspective": {
+        "name": "Reset Perspective",
+        "description": "If enabled, the previous perspective will be restored when deactivating BetterPerspective. Otherwise the perspective will be set to first person."
+      },
+      "header": {
+        "behavior": {
+          "name": "Behavior"
+        }
       }
     }
   }
