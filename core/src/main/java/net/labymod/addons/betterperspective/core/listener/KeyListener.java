@@ -21,7 +21,6 @@ import net.labymod.addons.betterperspective.core.BetterPerspectiveConfiguration;
 import net.labymod.addons.betterperspective.core.BetterPerspectiveService;
 import net.labymod.api.event.Subscribe;
 import net.labymod.api.event.client.input.KeyEvent;
-import net.labymod.api.inject.LabyGuice;
 
 import javax.inject.Inject;
 

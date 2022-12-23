@@ -24,7 +24,6 @@ import net.labymod.api.client.options.Perspective;
 import net.labymod.api.event.Phase;
 import net.labymod.api.event.Subscribe;
 import net.labymod.api.event.client.lifecycle.GameTickEvent;
-import net.labymod.api.event.labymod.labyconnect.session.LabyConnectPlayEmoteEvent;
 
 import javax.inject.Inject;
 
