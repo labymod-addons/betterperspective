@@ -16,6 +16,7 @@
 
 package net.labymod.addons.betterperspective.core;
 
+import javax.inject.Singleton;
 import net.labymod.addons.betterperspective.core.misc.BetterPerspectivePerspective;
 import net.labymod.api.addon.AddonConfig;
 import net.labymod.api.client.gui.screen.key.Key;
@@ -25,8 +26,6 @@ import net.labymod.api.client.gui.screen.widget.widgets.input.dropdown.DropdownW
 import net.labymod.api.configuration.loader.annotation.ConfigName;
 import net.labymod.api.configuration.loader.property.ConfigProperty;
 import net.labymod.api.configuration.settings.annotation.SettingSection;
-
-import javax.inject.Singleton;
 
 @Singleton
 @ConfigName("settings")
@@ -42,10 +41,9 @@ public class BetterPerspectiveConfiguration extends AddonConfig {
 	private final ConfigProperty<Boolean> toggle = new ConfigProperty<>(false);
 
 	@SettingSection("behavior")
-	@DropdownWidget.DropdownSetting
-	private final ConfigProperty<BetterPerspectivePerspective> thirdPersonMode =
-			new ConfigProperty<>(
-			BetterPerspectivePerspective.THIRD_PERSON_BACK);
+  @DropdownWidget.DropdownSetting
+  private final ConfigProperty<BetterPerspectivePerspective> thirdPersonMode =
+      new ConfigProperty<>(BetterPerspectivePerspective.THIRD_PERSON_BACK);
 
 	@SwitchSetting
 	private final ConfigProperty<Boolean> lockPitchRange = new ConfigProperty<>(true);

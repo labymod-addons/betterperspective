@@ -25,21 +25,17 @@ import net.labymod.api.event.Phase;
 import net.labymod.api.event.Subscribe;
 import net.labymod.api.event.client.lifecycle.GameTickEvent;
 
-import javax.inject.Inject;
-
 public class GameTickListener {
 
 	private final BetterPerspective betterPerspective;
 	private final BetterPerspectiveService service;
 	private final Minecraft minecraft;
 
-	@Inject
-	private GameTickListener(BetterPerspective betterPerspective, BetterPerspectiveService service,
-	                         Minecraft minecraft) {
-		this.betterPerspective = betterPerspective;
-		this.service = service;
-		this.minecraft = minecraft;
-	}
+	public GameTickListener(BetterPerspective betterPerspective, Minecraft minecraft) {
+    this.betterPerspective = betterPerspective;
+    this.service = betterPerspective.references().betterPerspectiveService();
+    this.minecraft = minecraft;
+  }
 
 	@Subscribe
 	public void onGameTick(GameTickEvent event) {

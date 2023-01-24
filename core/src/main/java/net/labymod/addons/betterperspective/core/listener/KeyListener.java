@@ -22,18 +22,15 @@ import net.labymod.addons.betterperspective.core.BetterPerspectiveService;
 import net.labymod.api.event.Subscribe;
 import net.labymod.api.event.client.input.KeyEvent;
 
-import javax.inject.Inject;
-
 public class KeyListener {
 
 	private final BetterPerspective betterPerspective;
 	private final BetterPerspectiveService service;
 
-	@Inject
-	private KeyListener(BetterPerspective betterPerspective, BetterPerspectiveService service) {
-		this.betterPerspective = betterPerspective;
-		this.service = service;
-	}
+	public KeyListener(BetterPerspective betterPerspective) {
+    this.betterPerspective = betterPerspective;
+    this.service = betterPerspective.references().betterPerspectiveService();
+  }
 
 	@Subscribe
 	public void onKey(KeyEvent event) {

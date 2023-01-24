@@ -16,16 +16,18 @@
 
 package net.labymod.addons.betterperspective.core;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import net.labymod.addons.betterperspective.core.misc.BetterPerspectivePerspective;
+import net.labymod.api.Laby;
 import net.labymod.api.LabyAPI;
 import net.labymod.api.client.entity.player.CameraLockController;
 import net.labymod.api.client.options.MinecraftOptions;
 import net.labymod.api.client.options.Perspective;
-
-import javax.inject.Inject;
-import javax.inject.Singleton;
+import net.labymod.api.reference.annotation.Referenceable;
 
 @Singleton
+@Referenceable
 public class BetterPerspectiveService {
 
 	private final LabyAPI labyAPI;
@@ -34,11 +36,11 @@ public class BetterPerspectiveService {
 	private Perspective previousMode;
 	private boolean active = false;
 
-	@Inject
-	private BetterPerspectiveService(LabyAPI labyAPI, CameraLockController cameraLockController) {
-		this.labyAPI = labyAPI;
-		this.cameraLockController = cameraLockController;
-	}
+  @Inject
+  public BetterPerspectiveService() {
+    this.labyAPI = Laby.labyAPI();
+    this.cameraLockController = Laby.references().cameraLockController();
+  }
 
 	public void activate(BetterPerspectivePerspective perspective, boolean lockPitchRange) {
 		if (this.active) {

@@ -22,19 +22,15 @@ import net.labymod.addons.betterperspective.core.BetterPerspectiveService;
 import net.labymod.api.event.Subscribe;
 import net.labymod.api.event.client.gui.screen.ScreenOpenEvent;
 
-import javax.inject.Inject;
-
 public class ScreenOpenListener {
 
 	private final BetterPerspective betterPerspective;
 	private final BetterPerspectiveService service;
 
-	@Inject
-	private ScreenOpenListener(BetterPerspective betterPerspective,
-	                           BetterPerspectiveService service) {
-		this.betterPerspective = betterPerspective;
-		this.service = service;
-	}
+	public ScreenOpenListener(BetterPerspective betterPerspective) {
+    this.betterPerspective = betterPerspective;
+    this.service = betterPerspective.references().betterPerspectiveService();
+  }
 
 	@Subscribe
 	public void onScreenOpen(ScreenOpenEvent event) {

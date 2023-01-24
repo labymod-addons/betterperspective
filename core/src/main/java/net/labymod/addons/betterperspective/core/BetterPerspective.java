@@ -16,29 +16,33 @@
 
 package net.labymod.addons.betterperspective.core;
 
+import javax.inject.Singleton;
+import net.labymod.addons.betterperspective.core.generated.DefaultReferenceStorage;
 import net.labymod.addons.betterperspective.core.listener.GameTickListener;
 import net.labymod.addons.betterperspective.core.listener.KeyListener;
 import net.labymod.addons.betterperspective.core.listener.ScreenOpenListener;
 import net.labymod.api.addon.LabyAddon;
-import net.labymod.api.models.addon.annotation.AddonListener;
-
-import javax.inject.Singleton;
+import net.labymod.api.models.addon.annotation.AddonMain;
 
 @Singleton
-@AddonListener
+@AddonMain
 public class BetterPerspective extends LabyAddon<BetterPerspectiveConfiguration> {
 
 	@Override
 	protected void enable() {
-		this.registerSettingCategory();
+    this.registerSettingCategory();
 
-		this.registerListener(GameTickListener.class);
-		this.registerListener(KeyListener.class);
-		this.registerListener(ScreenOpenListener.class);
-	}
+    this.registerListener(new GameTickListener(this, this.labyAPI().minecraft()));
+    this.registerListener(new KeyListener(this));
+    this.registerListener(new ScreenOpenListener(this));
+  }
 
-	@Override
-	protected Class<BetterPerspectiveConfiguration> configurationClass() {
-		return BetterPerspectiveConfiguration.class;
-	}
+  @Override
+  protected Class<BetterPerspectiveConfiguration> configurationClass() {
+    return BetterPerspectiveConfiguration.class;
+  }
+
+  public DefaultReferenceStorage references() {
+    return this.getReferenceStorageAccessor();
+  }
 }
