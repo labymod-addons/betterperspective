@@ -33,8 +33,8 @@ public class BetterPerspectiveService {
 	private final LabyAPI labyAPI;
 	private final CameraLockController cameraLockController;
 
-	private Perspective previousMode;
-	private boolean active = false;
+  private Perspective previousMode;
+  private boolean active = false;
 
   @Inject
   public BetterPerspectiveService() {
@@ -42,37 +42,41 @@ public class BetterPerspectiveService {
     this.cameraLockController = Laby.references().cameraLockController();
   }
 
-	public void activate(BetterPerspectivePerspective perspective, boolean lockPitchRange) {
-		if (this.active) {
-			return;
-		}
+  public void activate(
+      BetterPerspectivePerspective perspective,
+      boolean lockPitchRange,
+      boolean unlockCamera
+  ) {
+    if (this.active) {
+      return;
+    }
 
-		this.active = true;
-		MinecraftOptions options = this.labyAPI.minecraft().options();
-		this.previousMode = options.perspective();
-		if (this.previousMode == Perspective.FIRST_PERSON) {
-			options.setPerspective(perspective.perspective());
-		}
+    this.active = true;
+    MinecraftOptions options = this.labyAPI.minecraft().options();
+    this.previousMode = options.perspective();
+    if (this.previousMode == Perspective.FIRST_PERSON) {
+      options.setPerspective(perspective.perspective());
+    }
 
-		this.cameraLockController.lock(CameraLockController.LockType.HEAD);
-		this.cameraLockController.setUnlimitedPitch(!lockPitchRange);
-	}
+    if (unlockCamera) {
+      this.cameraLockController.lock(CameraLockController.LockType.HEAD);
+      this.cameraLockController.setUnlimitedPitch(!lockPitchRange);
+    }
+  }
 
-	public void deactivate() {
-		this.deactivate(true);
-	}
+  public void deactivate(boolean resetPerspective, boolean unlockCamera) {
+    if (!this.active) {
+      return;
+    }
 
-	public void deactivate(boolean resetPerspective) {
-		if (!this.active) {
-			return;
-		}
+    this.labyAPI.minecraft().options().setPerspective(
+        resetPerspective ? this.previousMode : Perspective.FIRST_PERSON);
 
-		this.labyAPI.minecraft().options().setPerspective(
-				resetPerspective ? this.previousMode : Perspective.FIRST_PERSON);
-
-		this.active = false;
-		this.cameraLockController.unlock();
-	}
+    this.active = false;
+    if (unlockCamera) {
+      this.cameraLockController.unlock();
+    }
+  }
 
 	public boolean isActive() {
 		return this.active;

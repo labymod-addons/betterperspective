@@ -25,6 +25,7 @@ import net.labymod.api.client.gui.screen.widget.widgets.input.SwitchWidget.Switc
 import net.labymod.api.client.gui.screen.widget.widgets.input.dropdown.DropdownWidget;
 import net.labymod.api.configuration.loader.annotation.ConfigName;
 import net.labymod.api.configuration.loader.property.ConfigProperty;
+import net.labymod.api.configuration.settings.annotation.SettingRequires;
 import net.labymod.api.configuration.settings.annotation.SettingSection;
 
 @Singleton
@@ -35,51 +36,60 @@ public class BetterPerspectiveConfiguration extends AddonConfig {
 	private final ConfigProperty<Boolean> enabled = new ConfigProperty<>(true);
 
 	@KeyBindSetting
-	private final ConfigProperty<Key> key = new ConfigProperty<>(Key.NONE);
+  private final ConfigProperty<Key> key = new ConfigProperty<>(Key.NONE);
 
-	@SwitchSetting
-	private final ConfigProperty<Boolean> toggle = new ConfigProperty<>(false);
+  @SwitchSetting
+  private final ConfigProperty<Boolean> toggle = new ConfigProperty<>(false);
 
-	@SettingSection("behavior")
+  @SettingSection("behavior")
   @DropdownWidget.DropdownSetting
   private final ConfigProperty<BetterPerspectivePerspective> thirdPersonMode =
       new ConfigProperty<>(BetterPerspectivePerspective.THIRD_PERSON_BACK);
 
-	@SwitchSetting
-	private final ConfigProperty<Boolean> lockPitchRange = new ConfigProperty<>(true);
+  @SwitchSetting
+  private final ConfigProperty<Boolean> unlockCamera = new ConfigProperty<>(true);
 
-	@SwitchSetting
-	private final ConfigProperty<Boolean> skipFirstPerson = new ConfigProperty<>(false);
+  @SwitchSetting
+  private final ConfigProperty<Boolean> resetToPreviousPerspective = new ConfigProperty<>(true);
 
-	@SwitchSetting
-	private final ConfigProperty<Boolean> resetToPreviousPerspective = new ConfigProperty<>(true);
+  @SwitchSetting
+  private final ConfigProperty<Boolean> skipFirstPerson = new ConfigProperty<>(false);
 
-	@Override
-	public ConfigProperty<Boolean> enabled() {
-		return this.enabled;
-	}
+  @SwitchSetting
+  @SettingRequires(value = "unlockCamera")
+  private final ConfigProperty<Boolean> lockPitchRange = new ConfigProperty<>(true);
+
+
+  @Override
+  public ConfigProperty<Boolean> enabled() {
+    return this.enabled;
+  }
 
 	public ConfigProperty<Key> key() {
-		return this.key;
-	}
+    return this.key;
+  }
 
-	public ConfigProperty<Boolean> toggle() {
-		return this.toggle;
-	}
+  public ConfigProperty<Boolean> toggle() {
+    return this.toggle;
+  }
 
-	public ConfigProperty<BetterPerspectivePerspective> thirdPersonMode() {
-		return this.thirdPersonMode;
-	}
+  public ConfigProperty<BetterPerspectivePerspective> thirdPersonMode() {
+    return this.thirdPersonMode;
+  }
 
-	public ConfigProperty<Boolean> lockPitchRange() {
-		return this.lockPitchRange;
-	}
+  public ConfigProperty<Boolean> unlockCamera() {
+    return this.unlockCamera;
+  }
 
-	public ConfigProperty<Boolean> skipFirstPerson() {
-		return this.skipFirstPerson;
-	}
+  public ConfigProperty<Boolean> resetToPreviousPerspective() {
+    return this.resetToPreviousPerspective;
+  }
 
-	public ConfigProperty<Boolean> resetToPreviousPerspective() {
-		return this.resetToPreviousPerspective;
-	}
+  public ConfigProperty<Boolean> lockPitchRange() {
+    return this.lockPitchRange;
+  }
+
+  public ConfigProperty<Boolean> skipFirstPerson() {
+    return this.skipFirstPerson;
+  }
 }

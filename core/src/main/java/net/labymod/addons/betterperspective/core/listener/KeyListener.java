@@ -46,21 +46,33 @@ public class KeyListener {
 		if (configuration.toggle().get()) {
 			if (event.state() == KeyEvent.State.UNPRESSED) {
 				if (this.service.isActive()) {
-					this.service.deactivate(configuration.resetToPreviousPerspective().get());
-				} else {
-					this.service.activate(configuration.thirdPersonMode().get(),
-							configuration.lockPitchRange().get());
-				}
+          this.service.deactivate(
+              configuration.resetToPreviousPerspective().get(),
+              configuration.unlockCamera().get()
+          );
+        } else {
+          this.service.activate(
+              configuration.thirdPersonMode().get(),
+              configuration.lockPitchRange().get(),
+              configuration.unlockCamera().get()
+          );
+        }
 			}
 
 			return;
 		}
 
 		if (event.state() == KeyEvent.State.UNPRESSED) {
-			this.service.deactivate(configuration.resetToPreviousPerspective().get());
-		} else if (event.state() == KeyEvent.State.PRESS) {
-			this.service.activate(configuration.thirdPersonMode().get(),
-					configuration.lockPitchRange().get());
-		}
+      this.service.deactivate(
+          configuration.resetToPreviousPerspective().get(),
+          configuration.unlockCamera().get()
+      );
+    } else if (event.state() == KeyEvent.State.PRESS) {
+      this.service.activate(
+          configuration.thirdPersonMode().get(),
+          configuration.lockPitchRange().get(),
+          configuration.unlockCamera().get()
+      );
+    }
 	}
 }

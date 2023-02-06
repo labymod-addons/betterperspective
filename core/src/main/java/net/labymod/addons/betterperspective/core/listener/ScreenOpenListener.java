@@ -34,11 +34,14 @@ public class ScreenOpenListener {
 
 	@Subscribe
 	public void onScreenOpen(ScreenOpenEvent event) {
-		BetterPerspectiveConfiguration configuration = this.betterPerspective.configuration();
-		if (configuration.toggle().get()) {
-			return;
-		}
+    BetterPerspectiveConfiguration configuration = this.betterPerspective.configuration();
+    if (configuration.toggle().get()) {
+      return;
+    }
 
-		this.service.deactivate(configuration.resetToPreviousPerspective().get());
-	}
+    this.service.deactivate(
+        configuration.resetToPreviousPerspective().get(),
+        configuration.unlockCamera().get()
+    );
+  }
 }

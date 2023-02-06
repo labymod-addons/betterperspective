@@ -17,6 +17,7 @@
 package net.labymod.addons.betterperspective.core.listener;
 
 import net.labymod.addons.betterperspective.core.BetterPerspective;
+import net.labymod.addons.betterperspective.core.BetterPerspectiveConfiguration;
 import net.labymod.addons.betterperspective.core.BetterPerspectiveService;
 import net.labymod.api.client.Minecraft;
 import net.labymod.api.client.entity.player.ClientPlayer;
@@ -50,11 +51,12 @@ public class GameTickListener {
 
 		if (this.service.isActive()
 				&& this.minecraft.options().perspective() == Perspective.FIRST_PERSON) {
-			if (this.betterPerspective.configuration().skipFirstPerson().get()) {
-				this.minecraft.options().setPerspective(Perspective.THIRD_PERSON_BACK);
-			} else {
-				this.service.deactivate(false);
-			}
-		}
+      BetterPerspectiveConfiguration configuration = this.betterPerspective.configuration();
+      if (configuration.skipFirstPerson().get()) {
+        this.minecraft.options().setPerspective(Perspective.THIRD_PERSON_BACK);
+      } else {
+        this.service.deactivate(false, configuration.unlockCamera().get());
+      }
+    }
 	}
 }
