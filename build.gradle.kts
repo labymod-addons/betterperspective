@@ -20,9 +20,9 @@ labyMod {
     }
 
     minecraft {
-        registerVersions("1.8.9", "1.17.1", "1.18.2", "1.19.2", "1.19.3") { version, provider ->
-            configureRun(provider, version)
-        }
+        //registerVersions("1.8.9", "1.17.1", "1.18.2", "1.19.2", "1.19.3") { version, provider ->
+        //    configureRun(provider, version)
+        //}
 
         subprojects.forEach {
             if (it.name != "game-runner") {
