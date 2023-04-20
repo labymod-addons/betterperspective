@@ -47,7 +47,7 @@ public class BetterPerspectiveService {
       boolean lockPitchRange,
       boolean unlockCamera
   ) {
-    if (this.active) {
+    if (this.active || this.cameraLockController.isLocked()) {
       return;
     }
 
