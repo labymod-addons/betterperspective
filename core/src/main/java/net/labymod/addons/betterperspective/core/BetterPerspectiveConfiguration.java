@@ -35,7 +35,7 @@ public class BetterPerspectiveConfiguration extends AddonConfig {
 	@SwitchSetting
 	private final ConfigProperty<Boolean> enabled = new ConfigProperty<>(true);
 
-	@KeyBindSetting
+	@KeyBindSetting(acceptMouseButtons = true)
   private final ConfigProperty<Key> key = new ConfigProperty<>(Key.NONE);
 
   @SwitchSetting
