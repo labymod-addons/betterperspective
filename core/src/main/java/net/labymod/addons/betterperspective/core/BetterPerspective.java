@@ -16,25 +16,43 @@
 
 package net.labymod.addons.betterperspective.core;
 
-import javax.inject.Singleton;
 import net.labymod.addons.betterperspective.core.generated.DefaultReferenceStorage;
 import net.labymod.addons.betterperspective.core.listener.GameTickListener;
-import net.labymod.addons.betterperspective.core.listener.KeyListener;
-import net.labymod.addons.betterperspective.core.listener.ScreenOpenListener;
+import net.labymod.api.Laby;
 import net.labymod.api.addon.LabyAddon;
+import net.labymod.api.client.gui.screen.key.HotkeyService.Type;
 import net.labymod.api.models.addon.annotation.AddonMain;
 
-@Singleton
 @AddonMain
 public class BetterPerspective extends LabyAddon<BetterPerspectiveConfiguration> {
 
-	@Override
-	protected void enable() {
+  @Override
+  protected void enable() {
     this.registerSettingCategory();
 
     this.registerListener(new GameTickListener(this, this.labyAPI().minecraft()));
-    this.registerListener(new KeyListener(this));
-    this.registerListener(new ScreenOpenListener(this));
+
+    Laby.references().hotkeyService().register(
+        "betterperspective",
+        this.configuration().key(),
+        () -> this.configuration().toggle().get() ? Type.TOGGLE : Type.HOLD,
+        active -> {
+          BetterPerspectiveService service = this.references().betterPerspectiveService();
+          BetterPerspectiveConfiguration configuration = this.configuration();
+          if (active) {
+            service.activate(
+                configuration.thirdPersonMode().get(),
+                configuration.lockPitchRange().get(),
+                configuration.unlockCamera().get()
+            );
+          } else {
+            service.deactivate(
+                configuration.resetToPreviousPerspective().get(),
+                configuration.unlockCamera().get()
+            );
+          }
+        }
+    );
   }
 
   @Override
