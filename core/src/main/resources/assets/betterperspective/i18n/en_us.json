@@ -43,7 +43,8 @@
     },
     "permissions": {
       "better-perspective-unlock-camera": {
-        "name": "Unlock Camera"
+        "name": "Unlock Camera",
+        "denied": "The setting \"Unlock Camera\" has been force disabled by the server."
       }
     }
   }
