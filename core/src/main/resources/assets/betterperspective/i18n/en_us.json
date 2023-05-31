@@ -40,6 +40,11 @@
           "name": "Behavior"
         }
       }
+    },
+    "permissions": {
+      "better-perspective-unlock-camera": {
+        "name": "Unlock Camera"
+      }
     }
   }
 }

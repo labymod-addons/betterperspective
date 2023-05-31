@@ -22,9 +22,12 @@ import net.labymod.api.Laby;
 import net.labymod.api.addon.LabyAddon;
 import net.labymod.api.client.gui.screen.key.HotkeyService.Type;
 import net.labymod.api.models.addon.annotation.AddonMain;
+import net.labymod.api.user.permission.ClientPermission;
 
 @AddonMain
 public class BetterPerspective extends LabyAddon<BetterPerspectiveConfiguration> {
+
+  private static final String PERMISSION = "better_perspective_unlock_camera";
 
   @Override
   protected void enable() {
@@ -32,23 +35,33 @@ public class BetterPerspective extends LabyAddon<BetterPerspectiveConfiguration>
 
     this.registerListener(new GameTickListener(this, this.labyAPI().minecraft()));
 
+    this.labyAPI().permissionRegistry().register(PERMISSION, true);
     Laby.references().hotkeyService().register(
         "betterperspective",
         this.configuration().key(),
         () -> this.configuration().toggle().get() ? Type.TOGGLE : Type.HOLD,
         active -> {
-          BetterPerspectiveService service = this.references().betterPerspectiveService();
+          boolean unlockCamera;
+          ClientPermission permission = Laby.labyAPI().permissionRegistry()
+              .getPermission(PERMISSION);
           BetterPerspectiveConfiguration configuration = this.configuration();
+          if (permission != null && !permission.isEnabled()) {
+            unlockCamera = false;
+          } else {
+            unlockCamera = configuration.unlockCamera().get();
+          }
+
+          BetterPerspectiveService service = this.references().betterPerspectiveService();
           if (active) {
             service.activate(
                 configuration.thirdPersonMode().get(),
                 configuration.lockPitchRange().get(),
-                configuration.unlockCamera().get()
+                unlockCamera
             );
           } else {
             service.deactivate(
                 configuration.resetToPreviousPerspective().get(),
-                configuration.unlockCamera().get()
+                unlockCamera
             );
           }
         }
