@@ -1,7 +1,7 @@
 rootProject.name = "betterperspective-addon"
 
 pluginManagement {
-    val labyGradlePluginVersion = "0.3.23"
+    val labyGradlePluginVersion = "0.3.25"
     plugins {
         id("net.labymod.gradle") version (labyGradlePluginVersion)
     }

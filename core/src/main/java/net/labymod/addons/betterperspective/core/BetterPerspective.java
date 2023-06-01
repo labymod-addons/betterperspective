@@ -19,8 +19,12 @@ package net.labymod.addons.betterperspective.core;
 import net.labymod.addons.betterperspective.core.generated.DefaultReferenceStorage;
 import net.labymod.addons.betterperspective.core.listener.GameTickListener;
 import net.labymod.addons.betterperspective.core.listener.PermissionStateChangeListener;
+import net.labymod.addons.betterperspective.core.listener.ServerJoinListener;
 import net.labymod.api.Laby;
 import net.labymod.api.addon.LabyAddon;
+import net.labymod.api.client.chat.ChatExecutor;
+import net.labymod.api.client.component.Component;
+import net.labymod.api.client.component.format.NamedTextColor;
 import net.labymod.api.client.gui.screen.key.HotkeyService.Type;
 import net.labymod.api.models.addon.annotation.AddonMain;
 import net.labymod.api.user.permission.ClientPermission;
@@ -30,12 +34,19 @@ public class BetterPerspective extends LabyAddon<BetterPerspectiveConfiguration>
 
   public static final String PERMISSION = "better_perspective_unlock_camera";
 
+  private static final Component PREFIX = Component.text("[", NamedTextColor.GRAY)
+      .append(Component.text("BetterPerspective", NamedTextColor.DARK_AQUA))
+      .append(Component.text("] ", NamedTextColor.GRAY));
+
+  private boolean warningSent;
+
   @Override
   protected void enable() {
     this.registerSettingCategory();
 
     this.registerListener(new GameTickListener(this, this.labyAPI().minecraft()));
     this.registerListener(new PermissionStateChangeListener(this));
+    this.registerListener(new ServerJoinListener(this));
 
     this.labyAPI().permissionRegistry().register(PERMISSION, true);
     Laby.references().hotkeyService().register(
@@ -77,5 +88,27 @@ public class BetterPerspective extends LabyAddon<BetterPerspectiveConfiguration>
 
   public DefaultReferenceStorage references() {
     return this.getReferenceStorageAccessor();
+  }
+
+  public void displayPermissionWarning() {
+    if (this.warningSent) {
+      return;
+    }
+
+    this.warningSent = true;
+    ChatExecutor chatExecutor = this.labyAPI().minecraft().chatExecutor();
+    Component component = Component.empty();
+    component.append(PREFIX);
+    component.append(Component.translatable(
+        "betterperspective.permissions." + BetterPerspective.PERMISSION.replace("_", "-")
+            + ".denied",
+        NamedTextColor.RED
+    ));
+
+    chatExecutor.displayClientMessage(component);
+  }
+
+  public void resetWarningSent() {
+    this.warningSent = false;
   }
 }
