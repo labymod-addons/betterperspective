@@ -35,7 +35,7 @@ public class PermissionStateChangeListener {
       return;
     }
 
-    String permissionId = event.permission().getPermissionId();
+    String permissionId = event.permission().getIdentifier();
     if (!permissionId.equals(BetterPerspective.PERMISSION)
         || !this.betterPerspective.configuration().unlockCamera().get()) {
       return;
