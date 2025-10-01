@@ -1,0 +1,51 @@
+{
+    "betterperspective": {
+        "settings": {
+            "name": "",
+            "enabled": {
+                "name": ""
+            },
+            "toggle": {
+                "name": ""
+            },
+            "key": {
+                "name": ""
+            },
+            "thirdPersonMode": {
+                "name": "",
+                "description": "",
+                "entries": {
+                    "thirdPersonBack": "",
+                    "thirdPersonFront": ""
+                }
+            },
+            "unlockCamera": {
+                "name": "",
+                "description": ""
+            },
+            "resetToPreviousPerspective": {
+                "name": "",
+                "description": ""
+            },
+            "skipFirstPerson": {
+                "name": "",
+                "description": ""
+            },
+            "lockPitchRange": {
+                "name": "",
+                "description": ""
+            },
+            "header": {
+                "behavior": {
+                    "name": ""
+                }
+            }
+        },
+        "permissions": {
+            "better-perspective-unlock-camera": {
+                "name": "",
+                "denied": ""
+            }
+        }
+    }
+}
