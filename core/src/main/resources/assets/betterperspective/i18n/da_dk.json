@@ -1,1 +1,13 @@
-{}
+{
+    "betterperspective": {
+        "settings": {
+            "name": "BedrePerspektiv",
+            "enabled": {
+                "name": "Aktiveret"
+            },
+            "toggle": {
+                "name": "Toggle"
+            }
+        }
+    }
+}
