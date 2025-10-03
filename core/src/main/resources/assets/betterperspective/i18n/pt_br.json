@@ -1,1 +1,9 @@
-{}
+{
+    "betterperspective": {
+        "settings": {
+            "enabled": {
+                "name": "Ativado"
+            }
+        }
+    }
+}
