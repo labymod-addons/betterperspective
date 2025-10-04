@@ -3,6 +3,11 @@
         "settings": {
             "enabled": {
                 "name": "Ativado"
+            },
+            "thirdPersonMode": {
+                "entries": {
+                    "thirdPersonFront": "Frente"
+                }
             }
         }
     }
