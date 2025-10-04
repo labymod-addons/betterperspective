@@ -12,7 +12,12 @@
                 "name": "Tuş"
             },
             "thirdPersonMode": {
-                "name": "Üçüncü Şahıs Modu"
+                "name": "Üçüncü Şahıs Modu",
+                "description": "Daha İyi Perspektif etkinleştirildiğinde seçilecek üçüncü şahıs modu.",
+                "entries": {
+                    "thirdPersonBack": "Geri",
+                    "thirdPersonFront": "Ön"
+                }
             },
             "lockPitchRange": {
                 "name": "Bakış açısı aralığını kilitle",
