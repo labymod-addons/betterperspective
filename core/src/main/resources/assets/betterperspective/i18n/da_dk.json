@@ -7,6 +7,9 @@
             },
             "toggle": {
                 "name": "Skift"
+            },
+            "key": {
+                "name": "Tast"
             }
         }
     }
