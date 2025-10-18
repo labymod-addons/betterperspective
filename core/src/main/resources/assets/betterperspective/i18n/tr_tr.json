@@ -27,6 +27,18 @@
                 "behavior": {
                     "name": "Davranış"
                 }
+            },
+            "unlockCamera": {
+                "name": "Kameranın Kilidini Aç",
+                "description": "BetterPerspective aktifken kameranın serbestçe hareket ettirilmesine izin verir. Bu, Hypixel gibi sunucularda etkinleştirilmesi önerilmez, çünkü yasaklanabilirsiniz."
+            },
+            "resetToPreviousPerspective": {
+                "name": "Perspektifi Sıfırla",
+                "description": "Aktifse, BetterPerspective devre dışı bırakıldığında önceki perspektif geri yüklenir. Aksi takdirde perspektif birinci şahıs olarak ayarlanır."
+            },
+            "skipFirstPerson": {
+                "name": "Birinci Şahısı Atla",
+                "description": "Aktifse, F5’e bastığınızda birinci şahıs görünümü atlanır. Aksi takdirde BetterPerspective devre dışı bırakılır."
             }
         },
         "permissions": {
