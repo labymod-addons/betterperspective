@@ -1,1 +1,23 @@
-{}
+{
+    "betterperspective": {
+        "settings": {
+            "name": "Beter perspectief",
+            "enabled": {
+                "name": "Ingeschakeld"
+            },
+            "toggle": {
+                "name": "Wisselen"
+            },
+            "key": {
+                "name": "Toets"
+            },
+            "thirdPersonMode": {
+                "name": "Derde persoon-modus",
+                "description": "De derde persoon-modus die wordt geselecteerd bij het activeren van BetterPerspective.",
+                "entries": {
+                    "thirdPersonBack": "Terug"
+                }
+            }
+        }
+    }
+}
