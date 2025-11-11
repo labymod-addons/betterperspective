@@ -10,6 +10,17 @@
             },
             "key": {
                 "name": "Tast"
+            },
+            "thirdPersonMode": {
+                "name": "Tredjepersonsvisning"
+            },
+            "unlockCamera": {
+                "name": "Lås kamera op"
+            },
+            "header": {
+                "behavior": {
+                    "name": "Adfærd"
+                }
             }
         }
     }
