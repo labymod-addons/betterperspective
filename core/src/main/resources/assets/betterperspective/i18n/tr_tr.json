@@ -1,1 +1,19 @@
-{}
+{
+    "betterperspective": {
+        "settings": {
+            "name": "Daha iyi Perspektif",
+            "enabled": {
+                "name": "Aktif"
+            },
+            "toggle": {
+                "name": "Aç/Kapat"
+            },
+            "key": {
+                "name": "Tuş"
+            },
+            "thirdPersonMode": {
+                "name": "Üçüncü Şahıs Modu"
+            }
+        }
+    }
+}
