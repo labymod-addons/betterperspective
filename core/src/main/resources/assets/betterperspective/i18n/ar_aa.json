@@ -7,6 +7,14 @@
             },
             "toggle": {
                 "name": "تبديل"
+            },
+            "key": {
+                "name": "مفتاح"
+            },
+            "header": {
+                "behavior": {
+                    "name": "السلوك"
+                }
             }
         }
     }
