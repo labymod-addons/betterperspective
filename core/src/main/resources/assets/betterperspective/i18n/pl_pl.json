@@ -1,1 +1,51 @@
-{}
+{
+    "betterperspective": {
+        "settings": {
+            "thirdPersonMode": {
+                "entries": {
+                    "thirdPersonBack": "Tył",
+                    "thirdPersonFront": "Przód"
+                },
+                "name": "Tryb Trzeciej Osoby",
+                "description": "Tryb trzeciej osoby, który zostanie wybrany po włączeniu BetterPerspective."
+            },
+            "unlockCamera": {
+                "name": "Odblokuj Kamerę",
+                "description": "Pozwala na swobodne poruszanie kamerą podczas aktywnego BetterPerspective. Nie zaleca się włączania tej opcji na serwerach takich jak Hypixel, ponieważ może to być zabronione i grozić banem."
+            },
+            "name": "BetterPerspective",
+            "enabled": {
+                "name": "Włączone"
+            },
+            "toggle": {
+                "name": "Przełączanie"
+            },
+            "key": {
+                "name": "Klawisz"
+            },
+            "resetToPreviousPerspective": {
+                "name": "Przywróć Perspektywę",
+                "description": "Jeśli włączone, po wyłączeniu BetterPerspective zostanie przywrócona poprzednia perspektywa. W przeciwnym razie perspektywa zostanie ustawiona na pierwszą osobę."
+            },
+            "skipFirstPerson": {
+                "name": "Pomiń Pierwszą Osobę",
+                "description": "Jeśli włączone, widok pierwszej osoby zostanie pominięty po naciśnięciu F5. W przeciwnym razie BetterPerspective zostanie wyłączone."
+            },
+            "lockPitchRange": {
+                "name": "Zabloluj Zakres Nachylenia",
+                "description": "Blokuje zakres nachylenia do 180 stopni. Wyłącza możliwość pełnego zakresu 360 stopni."
+            },
+            "header": {
+                "behavior": {
+                    "name": "Zachowanie"
+                }
+            }
+        },
+        "permissions": {
+            "better-perspective-unlock-camera": {
+                "name": "Odblokuj Kamerę",
+                "denied": "Ustawienie \"Odblokuj Kamerę\" zostało wymuszenie wyłączone przez serwer."
+            }
+        }
+    }
+}
