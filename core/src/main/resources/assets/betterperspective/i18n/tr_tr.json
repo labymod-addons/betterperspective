@@ -23,6 +23,12 @@
                     "name": "Davranış"
                 }
             }
+        },
+        "permissions": {
+            "better-perspective-unlock-camera": {
+                "name": "Kameranın kilidini aç",
+                "denied": "\"Kamera Kilidini Aç\" ayarı sunucu tarafından zorla devre dışı bırakıldı."
+            }
         }
     }
 }
