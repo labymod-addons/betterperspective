@@ -37,7 +37,7 @@
                 "description": "Aktifse, BetterPerspective devre dışı bırakıldığında önceki perspektif geri yüklenir. Aksi takdirde perspektif birinci şahıs olarak ayarlanır."
             },
             "skipFirstPerson": {
-                "name": "Birinci Şahısı Atla",
+                "name": "Birinci Şahsı Atla",
                 "description": "Aktifse, F5’e bastığınızda birinci şahıs görünümü atlanır. Aksi takdirde BetterPerspective devre dışı bırakılır."
             }
         },
