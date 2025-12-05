@@ -13,6 +13,15 @@
             },
             "thirdPersonMode": {
                 "name": "Üçüncü Şahıs Modu"
+            },
+            "lockPitchRange": {
+                "name": "Bakış açısı aralığını kilitle",
+                "description": "Perde aralığını 180 dereceye kilitler. 360 derece perde aralığını devre dışı bırakır."
+            },
+            "header": {
+                "behavior": {
+                    "name": "Davranış"
+                }
             }
         }
     }
