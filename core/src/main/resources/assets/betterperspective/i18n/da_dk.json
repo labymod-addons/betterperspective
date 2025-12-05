@@ -12,7 +12,11 @@
                 "name": "Tast"
             },
             "thirdPersonMode": {
-                "name": "Tredjepersonsvisning"
+                "name": "Tredjepersonsvisning",
+                "entries": {
+                    "thirdPersonBack": "Bagfra",
+                    "thirdPersonFront": "Forfra"
+                }
             },
             "unlockCamera": {
                 "name": "Lås kamera op"
@@ -21,6 +25,9 @@
                 "behavior": {
                     "name": "Adfærd"
                 }
+            },
+            "resetToPreviousPerspective": {
+                "name": "Nulstil perspektiv"
             }
         }
     }
