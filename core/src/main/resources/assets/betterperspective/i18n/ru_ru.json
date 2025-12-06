@@ -1,1 +1,51 @@
-{}
+{
+    "betterperspective": {
+        "settings": {
+            "name": "BetterPerspective",
+            "enabled": {
+                "name": "Включено"
+            },
+            "toggle": {
+                "name": "Активация переключением"
+            },
+            "key": {
+                "name": "Клавиша"
+            },
+            "thirdPersonMode": {
+                "name": "Начальная перспектива",
+                "description": "Перспектива при активации BetterPerspective.",
+                "entries": {
+                    "thirdPersonBack": "Сзади",
+                    "thirdPersonFront": "Спереди"
+                }
+            },
+            "unlockCamera": {
+                "name": "Разблокировать камеру",
+                "description": "Позволяет свободно перемещать камеру при активном BetterPerspective. Не рекомендуется использовать на серверах по типу Hypixel в связи с возможной блокировкой."
+            },
+            "resetToPreviousPerspective": {
+                "name": "Восстанавливать перспективу",
+                "description": "Если включено, при отключении BetterPerspective будет восстанавливаться исходная перспектива. Иначе выбирается перспектива от первого лица."
+            },
+            "skipFirstPerson": {
+                "name": "Цикличное переключение перспективы",
+                "description": "Если включено, нажатие F5 при активном BetterPerspective позволит переключаться между перспективами спереди и сзади, пропуская вид от первого лица."
+            },
+            "lockPitchRange": {
+                "name": "Ограничить тангаж",
+                "description": "Устанавливает лимит тангажа на 180 градусов, не позволяя выполнять тангаж на 360 градусов."
+            },
+            "header": {
+                "behavior": {
+                    "name": "Поведение"
+                }
+            }
+        },
+        "permissions": {
+            "better-perspective-unlock-camera": {
+                "name": "Разблокировка камеры",
+                "denied": "Функция «Разблокировка камеры» отключена сервером."
+            }
+        }
+    }
+}
