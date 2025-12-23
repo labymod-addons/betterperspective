@@ -16,7 +16,8 @@
                 "entries": {
                     "thirdPersonBack": "Bagfra",
                     "thirdPersonFront": "Forfra"
-                }
+                },
+                "description": "Den tredjepersonstilstand, der vælges, når BetterPerspective aktiveres."
             },
             "unlockCamera": {
                 "name": "Lås kamera op"
