@@ -34,6 +34,17 @@
             "lockPitchRange": {
                 "name": "Pitchbereik vergrendelen",
                 "description": "Vergrendelt het pitchbereik tot 180 graden. Schakelt het 360 graden pitchbereik uit."
+            },
+            "header": {
+                "behavior": {
+                    "name": "Gedrag"
+                }
+            }
+        },
+        "permissions": {
+            "better-perspective-unlock-camera": {
+                "name": "Ontgrendel Camera",
+                "denied": "De instelling \"ontgrendel Camera\" is geforceerd uitgeschakeld door de server"
             }
         }
     }
