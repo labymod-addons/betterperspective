@@ -39,6 +39,11 @@
             "lockPitchRange": {
                 "name": "Lås pitch område"
             }
+        },
+        "permissions": {
+            "better-perspective-unlock-camera": {
+                "name": "Lås Op For Kamera"
+            }
         }
     }
 }
