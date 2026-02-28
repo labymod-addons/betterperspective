@@ -9,6 +9,11 @@
                     "thirdPersonFront": "Frente"
                 }
             }
+        },
+        "permissions": {
+            "better-perspective-unlock-camera": {
+                "name": "Desbloquear Câmera"
+            }
         }
     }
 }
