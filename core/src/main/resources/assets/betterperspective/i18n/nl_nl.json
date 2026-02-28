@@ -15,8 +15,21 @@
                 "name": "Derde persoon modus",
                 "description": "De derde persoon modus die wordt geselecteerd bij het activeren van BetterPerspective.",
                 "entries": {
-                    "thirdPersonBack": "Terug"
+                    "thirdPersonBack": "Terug",
+                    "thirdPersonFront": "Voorkant"
                 }
+            },
+            "unlockCamera": {
+                "name": "Camera ontgrendelen",
+                "description": "Hiermee kan de camera vrij worden bewogen terwijl BetterPerspective actief is. Het wordt niet aanbevolen om dit op servers zoals Hypixel in te schakelen, omdat dit kan leiden tot een ban."
+            },
+            "resetToPreviousPerspective": {
+                "name": "Perspectief resetten",
+                "description": "Als dit is ingeschakeld, wordt de vorige perspectiefstand hersteld wanneer BetterPerspective wordt gedeactiveerd. Anders wordt het perspectief ingesteld op first person."
+            },
+            "skipFirstPerson": {
+                "name": "First person overslaan",
+                "description": "Als dit is ingeschakeld, wordt de first person-weergave overgeslagen bij het indrukken van F5. Anders wordt BetterPerspective gedeactiveerd."
             }
         }
     }
