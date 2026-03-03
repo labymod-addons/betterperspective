@@ -30,7 +30,7 @@
             },
             "resetToPreviousPerspective": {
                 "name": "Nulstil perspektiv",
-                "description": "Hvis aktiveret, det forrige perspektiv vil blive genoprettet når du deaktivere BedrePerspektiv. Ellers vil perspektivet blive sat til første person."
+                "description": "Hvis aktiveret vil den tidligere synsvinkel blive gendannet, når BetterPerspective deaktiveres. Ellers vil synsvinklen blive sat til førsteperson."
             }
         }
     }
