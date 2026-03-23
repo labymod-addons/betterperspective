@@ -35,6 +35,9 @@
             "skipFirstPerson": {
                 "description": "Hvis aktiveret, førstepersonsperspektiv vil blive sprunget over når du trykker F5. Ellers BedrePerspektiv vil blive deaktiveret.",
                 "name": "Spring Første Person Over"
+            },
+            "lockPitchRange": {
+                "name": "Lås pitch område"
             }
         }
     }
