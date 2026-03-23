@@ -37,12 +37,14 @@
                 "name": "Spring Første Person Over"
             },
             "lockPitchRange": {
-                "name": "Lås pitch område"
+                "name": "Lås pitch område",
+                "description": "Låser pitch-området til 180 grader. Deaktiverer 360 graders pitch-område."
             }
         },
         "permissions": {
             "better-perspective-unlock-camera": {
-                "name": "Lås Op For Kamera"
+                "name": "Lås op for kamera",
+                "denied": "Indstillingen \"Lås op for kamera\" er blevet tvangsdeaktiveret af serveren."
             }
         }
     }
