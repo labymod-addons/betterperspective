@@ -12,8 +12,8 @@
                 "name": "Toets"
             },
             "thirdPersonMode": {
-                "name": "Derde persoon-modus",
-                "description": "De derde persoon-modus die wordt geselecteerd bij het activeren van BetterPerspective.",
+                "name": "Derde persoon modus",
+                "description": "De derde persoon modus die wordt geselecteerd bij het activeren van BetterPerspective.",
                 "entries": {
                     "thirdPersonBack": "Terug"
                 }
