@@ -10,6 +10,41 @@
             },
             "key": {
                 "name": "Touche"
+            },
+            "thirdPersonMode": {
+                "name": "Mode à la troisième personne",
+                "description": "Le mode à la troisième personne qui sera sélectionné lors de l’activation de BetterPerspective.",
+                "entries": {
+                    "thirdPersonBack": "Retour",
+                    "thirdPersonFront": "Avant"
+                }
+            },
+            "unlockCamera": {
+                "name": "Déverrouiller la caméra",
+                "description": "Permet à la caméra d'être déplacée librement lorsque BetterPerspective est active. Il n'est pas recommandé d'activer cette option sur des serveurs comme Hypixel, car cela pourrait entraîner un bannissement."
+            },
+            "resetToPreviousPerspective": {
+                "name": "Réinitialiser la perspective",
+                "description": "Si activé, la perspective précédente sera restaurée lors de la désactivation de BetterPerspective. Sinon, la perspective sera réglée sur la première personne."
+            },
+            "skipFirstPerson": {
+                "name": "Ignorer la première personne",
+                "description": "Si activé, la vue à la première personne sera ignorée lors de l'appui sur F5. Sinon, BetterPerspective sera désactivé."
+            },
+            "lockPitchRange": {
+                "name": "Verrouiller la plage d'inclinaison",
+                "description": "Verrouille la plage d'inclinaison à 180 degrés. Désactive la plage d'inclinaison à 360 degrés."
+            },
+            "header": {
+                "behavior": {
+                    "name": "Comportement"
+                }
+            }
+        },
+        "permissions": {
+            "better-perspective-unlock-camera": {
+                "name": "Déverrouiller la caméra",
+                "denied": "Le paramètre \"Déverrouiller la caméra\" a été désactivé de force par le serveur."
             }
         }
     }
