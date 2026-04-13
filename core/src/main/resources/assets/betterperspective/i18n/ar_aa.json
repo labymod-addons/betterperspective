@@ -1,7 +1,13 @@
 {
     "betterperspective": {
         "settings": {
-            "name": "منظور أفضل"
+            "name": "منظور أفضل",
+            "enabled": {
+                "name": "مفعّل"
+            },
+            "toggle": {
+                "name": "تبديل"
+            }
         }
     }
 }
