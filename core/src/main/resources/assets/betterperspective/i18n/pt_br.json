@@ -14,6 +14,9 @@
             },
             "unlockCamera": {
                 "name": "Desbloquear Câmera"
+            },
+            "skipFirstPerson": {
+                "name": "Pular Primeira Pessoa"
             }
         },
         "permissions": {
