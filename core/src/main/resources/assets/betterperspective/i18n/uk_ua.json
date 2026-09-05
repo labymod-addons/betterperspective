@@ -1,1 +1,29 @@
-{}
+{
+    "betterperspective": {
+        "settings": {
+            "enabled": {
+                "name": "Активовано"
+            },
+            "toggle": {
+                "name": "Перемикач"
+            },
+            "key": {
+                "name": "Ключ"
+            },
+            "thirdPersonMode": {
+                "name": "Режим від третьої особи",
+                "description": "Режим від третьої особи, який буде вибрано під час активації BetterPerspective.",
+                "entries": {
+                    "thirdPersonBack": "Назад",
+                    "thirdPersonFront": "Спереду"
+                }
+            },
+            "unlockCamera": {
+                "name": "Розблокувати камеру"
+            },
+            "resetToPreviousPerspective": {
+                "name": "Скинути перспективу"
+            }
+        }
+    }
+}
